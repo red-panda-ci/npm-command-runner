@@ -32,3 +32,7 @@ fi
 npm install
 
 npm $NPM_COMMAND
+
+if [ -n "$COVERAGE_PATH" ]; then
+  cp -R $COVERAGE_PATH /reports
+fi
