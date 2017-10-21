@@ -28,6 +28,21 @@ docker run \
 -e NPM_COMMAND=test \
 redpandaci/npm-command-runner:latest
 
+# Run with volume to store coverage 
+
+docker run \
+--rm \
+--privileged \
+-e FORCE_COLOR=1 \
+-e USER=$GIT_USER \
+-e REPO=$GIT_REPO \
+-e BRANCH=$GIT_BRANCH \
+-e TOKEN=$GIT_TOKEN \
+-e NPM_COMMAND=test \
+-e COVERAGE_PATH='coverage' \ # add in /reports all coverage files
+-v `pwd`/coverage:/reports \
+redpandaci/npm-command-runner:1.0.0
+
 ```
 
 ## Versions
