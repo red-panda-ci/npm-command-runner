@@ -2,8 +2,8 @@ FROM  redpandaci/node-dind:1.0.0
 
 LABEL Mantainer Maurice Domínguez <maurice.ronet.dominguez@gmail.com> 
 
-RUN git config --global user.name "npm-command-runner"
-RUN git config --global user.email maurice.ronet.dominguez@gmail.com
+RUN git config --global user.name "red-panda-ci"
+RUN git config --global user.email redpandaci@gmail.com
 
 WORKDIR /workspace
 

@@ -8,5 +8,5 @@ docker run \
 -e USER=red-panda-ci \
 -e REPO=generator-redpanda-node-module \
 -e BRANCH=develop \
--e NPM_COMMAND=test \
+-e NPM_COMMAND='test' \
 redpandaci/npm-command-runner:$VERSION

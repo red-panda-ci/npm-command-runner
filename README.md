@@ -15,6 +15,7 @@ docker run \
 -e REPO=generator-redpanda-node-module \
 -e BRANCH=develop \
 -e NPM_COMMAND=test \
+redpandaci/npm-command-runner:latest
 
 # Use with private token
 
@@ -25,6 +26,7 @@ docker run \
 -e REPO=generator-redpanda-node-module \
 -e BRANCH=develop \
 -e NPM_COMMAND=test \
+redpandaci/npm-command-runner:latest
 
 ```
 
