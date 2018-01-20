@@ -1,4 +1,4 @@
-FROM  redpandaci/node-dind:1.0.0
+FROM  redpandaci/ubuntu-dind:1.0.0
 
 LABEL Mantainer Maurice Domínguez <maurice.ronet.dominguez@gmail.com> 
 
@@ -7,8 +7,8 @@ RUN git config --global user.email redpandaci@gmail.com
 
 WORKDIR /workspace
 
-COPY npm-command-runner.sh /usr/bin/npm-command-runner.sh
+COPY entrypoint.sh /usr/bin/npm-command-runner.sh
 
 RUN chmod u+x /usr/bin/npm-command-runner.sh
 
-ENTRYPOINT ["/usr/bin/npm-command-runner.sh"]
+CMD ["/usr/bin/npm-command-runner.sh"]
