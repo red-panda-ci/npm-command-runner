@@ -56,6 +56,7 @@ copy_to_generated_file_folder(){
 
 main(){
 
+  # if the node version is not specified, it is executed with the previously installed one in base image
   if [[ -n $NODE ]]; then
     execute_with_node_version $NODE
   fi
@@ -63,11 +64,6 @@ main(){
   # if not have a repository get code source from a volume: -v `pwd`:/workspace
   if [[ -n $REPO ]]; then
     pull_source_code $USER $REPO $BRANCH $GITHUB_TOKEN
-  fi
-
-  # if the node version is not specified, it is executed with the previously installed one in base image
-  if [[ -n $NODE ]]; then
-    execute_with_node_version $NODE
   fi
 
   install_dependencies
