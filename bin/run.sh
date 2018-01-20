@@ -8,7 +8,6 @@ docker run \
 -e USER=red-panda-ci \
 -e REPO=generator-redpanda-node-module \
 -e BRANCH=develop \
--e GITHUB_TOKEN="CHANGE" \
 -e NODE=6 \
 -e NPM_COMMAND=test \
 -e GENERATED_FILES=coverage \
