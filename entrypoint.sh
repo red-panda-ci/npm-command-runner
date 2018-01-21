@@ -54,20 +54,37 @@ copy_to_generated_file_folder(){
   cp -R $from $to
 }
 
-main(){
+npm_publish_module(){
+  local version npm_token
+  version=$1
+  npm_token=$2
 
-  # if the node version is not specified, it is executed with the previously installed one in base image
+  echo $npm_token > .npmrc
+  npm version --no-git-tag-version $VERSION
+  npm publish
+}
+
+main(){
+  # If the node version is not specified, it is executed with the previously installed one in base image
   if [[ -n $NODE ]]; then
     execute_with_node_version $NODE
   fi
 
-  # if not have a repository get code source from a volume: -v `pwd`:/workspace
+  # If not have a repository get code source from a volume: -v `pwd`:/workspace
   if [[ -n $REPO ]]; then
     pull_source_code $USER $REPO $BRANCH $GITHUB_TOKEN
   fi
 
-  install_dependencies
-  run_npm_command $NPM_COMMAND
+  # Use dependecies of other executions
+  if [ ! -d "node_modules" ]; then
+    install_dependencies
+  fi
+
+  if [ "$NPM_COMMAND" == "publish" ]; then
+    npm_publish_module $VERSION $NPM_TOKEN
+  else
+    run_npm_command $NPM_COMMAND
+  fi
 
   if [[ -n $GENERATED_FILES ]]; then
     copy_to_generated_file_folder $GENERATED_FILES
