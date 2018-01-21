@@ -1,6 +1,6 @@
 {
   "name": "npm-command-runner",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Node image with docker in docker strategy used to execute npm commands",
   "main": "Dockerfile",
   "scripts": {
