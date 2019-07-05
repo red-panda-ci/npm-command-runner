@@ -10,7 +10,7 @@ _Node image with docker in docker strategy used to execute npm commands._
 * Allows to publish modules in npm
 
 _Supported tags and respective `Dockerfile` links:_
-[`test`, `latest`, `1.0.0`, `1.2.0`](Dockerfile)
+[`test`, `latest`, `1.0.0`, `1.2.0`, `1.3.0`](Dockerfile)
 ## Use
 
 Use with github repo:
